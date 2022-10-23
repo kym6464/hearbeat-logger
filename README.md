@@ -4,6 +4,8 @@ A long-running python script that writes heartbeat logs to Cloud Logging on a sc
 
 ## Getting Started
 
+Copy google cloud service account private key file to the project root as "gcloud-logger-key.json". The only required permission is `logging.write`.
+
 Create a virtual env:
 
 ```
@@ -12,7 +14,27 @@ python -m venv env
 
 * NOTE: The virtual env directory must be called "env" as this is hard coded into the batch file
 
-Copy google cloud service account private key file to the project root as "gcloud-logger-key.json". The only required permission is `logging.write`.
+Install dependencies (in the virtual env):
+
+```
+pip install -r requirements.txt
+```
+
+See usage:
+
+```
+> python heartbeat.py --help
+usage: heartbeat.py [-h] [--interval INTERVAL] service_account_file
+
+Write heartbeat log to google cloud on an interval
+
+positional arguments:
+  service_account_file  path/to/service_account_file.json
+
+options:
+  -h, --help            show this help message and exit
+  --interval INTERVAL   Write log every interval seconds
+```
 
 ## Windows Service
 
