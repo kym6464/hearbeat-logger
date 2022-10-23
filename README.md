@@ -2,6 +2,8 @@
 
 A long-running python script that writes heartbeat logs to Cloud Logging on a schedule. The idea is to setup a log-based alert that will fire if no heartbeat log is received in a certain period of time.
 
+Also creates a local directory called `logs` in the project root and logs to a file.
+
 ## Getting Started
 
 Copy google cloud service account private key file to the project root as "gcloud-logger-key.json". The only required permission is `logging.write`.
